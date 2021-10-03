@@ -15,7 +15,7 @@ let key;
  const serviceAccount = require('../its-called-god-firebase-adminsdk-bpmzw-116bf1efd7.json')
  admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://its-called-god-default-rtdb.firebaseio.com'
+  databaseURL: process.env.dbURL
 });
 
 //
@@ -77,7 +77,7 @@ console.log(gmail)
     service: 'gmail',
     auth: {
       user: 'mailsendtest1299@gmail.com',
-      pass: '1234567@test' // naturally, replace both with your real credentials or an application-specific password
+      pass:  process.env.PASS // naturally, replace both with your real credentials or an application-specific password
     }
   });
 
@@ -113,8 +113,8 @@ console.log(gmail)
 
 const twilio = require('twilio');
 //import twilio from '/twilio';
-const accountSid = 'AC59fb001037102bb22dccf4ae42693fa5';
-const authToken = '08d415780b42393acda8f08930fe1ec8';
+const accountSid = process.env.sid;
+const authToken = 'process.env.auth;
 
 const client = twilio(accountSid, authToken);
 
